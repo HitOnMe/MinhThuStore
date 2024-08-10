@@ -1,4 +1,5 @@
 @import './base/_reset.scss';
+@import './base/base.scss';
 @import './helpler/_variables.scss';
 @import './helpler/_mixin.scss';
 @import './helpler/function';
@@ -8,5 +9,7 @@
 @import './components/_footer.scss';
 @import './components/_navigation.scss';
 @import './pages/mixture.scss';
+@import './pages/customer.scss';
+@import './pages/admin.scss';
 
 

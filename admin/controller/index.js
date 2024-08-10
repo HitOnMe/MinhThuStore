@@ -4,7 +4,7 @@ function renderStaff(staffs, objects){
         var content = `<tr>
         <td>${staff.createdAt}</td>    
         <td>${staff.name}</td> 
-        <td>$<img src='${staff.screen}' class='phone__image'></img></td> 
+        <td class='phone__image'><img src='${staff.screen}'></img></td> 
         <td>${staff.backCamera}</td> 
         <td>${staff.frontCamera}</td>     
         <td>${staff.img}</td>   
