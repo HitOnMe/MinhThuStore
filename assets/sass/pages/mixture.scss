@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('/assets/img/store.png')
+}
+.choose__service {
+    position: relative;
+    text-align: center;
+    img{
+        opacity: 0.5;
+        background-size: cover;
+    }
+}
+.nav-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}

@@ -1,0 +1,60 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  background-color: white;
+  color: black;
+  outline-color: blue;
+}
+a:hover {
+  background-color: green;
+  color: white;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.footer {
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  background-color: #232f3e;
+  border-radius: 5px;
+  font-family: Helvetica, sans-serif;
+}
+
+.carousel-item {
+  background-color: #4a90e2;
+  border-radius: 5px;
+  font-family: Helvetica, sans-serif;
+}
+.carousel-item img {
+  height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("/assets/img/store.png");
+}
+
+.choose__service {
+  position: relative;
+  text-align: center;
+}
+.choose__service img {
+  opacity: 0.5;
+  background-size: cover;
+}
+
+.nav-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 50px;
+}/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,23 @@
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("/assets/img/store.png");
+}
+
+.choose__service {
+  position: relative;
+  text-align: center;
+}
+.choose__service img {
+  opacity: 0.5;
+  background-size: cover;
+}
+
+.nav-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 50px;
+}/*# sourceMappingURL=mixture.css.map */
