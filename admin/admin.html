@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-
-    <!-- Bootstrap CSS -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <title>Product Management</title>
     <link rel="stylesheet" href="../assets/css/index.css" />
   </head>
   <body>
@@ -77,29 +75,88 @@
         </div>
       </div>
     </nav>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <div class="alert alert-success" role="alert">
-      <h4 class="alert-heading"></h4>
-      <table class="table-primary">
-        <thead id="staffHead">
-          Phone management
-        </thead>
-        <tbody id="staffContent" class="text-center">
+    <div class="container">
+      <h1>Product Management</h1>
+
+      <div class="actions">
+        <input type="text" id="filter-name" placeholder="Filter by Name" />
+        <button id="sort-price">Sort by Price</button>
+        <button id="add-product">Add Product</button>
+      </div>
+
+      <table id="product-table">
+        <thead>
           <tr>
-            <th>Mã khách hàng</th>
-            <th>Họ tên</th>
-            <th>Màn hình</th>
-            <th>Mặt trước camera</th>
-            <th>Mặt sau camera</th>
-            <th>Hình ảnh</th>
-            <th>desc</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Screen</th>
+            <th>Back Camera</th>
+            <th>Front Camera</th>
+            <th>Image</th>
+            <th>Description</th>
             <th>Type</th>
+            <th>Actions</th>
           </tr>
+        </thead>
+        <tbody id="staffContent">
+          <!-- Dynamic content will be inserted here -->
         </tbody>
       </table>
+    </div>
 
-      <p class="mb-0"></p>
+    <!-- Modal for adding/editing product -->
+    <div id="product-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modal-title">Add Product</h2>
+        <form id="product-form">
+          <input type="hidden" id="product-id" />
+          <input
+            type="text"
+            id="product-name"
+            placeholder="Product Name"
+            required
+          />
+          <input
+            type="number"
+            id="product-price"
+            placeholder="Price"
+            required
+          />
+          <input
+            type="text"
+            id="product-screen"
+            placeholder="Screen"
+            required
+          />
+          <input
+            type="text"
+            id="product-backCamera"
+            placeholder="Back Camera"
+            required
+          />
+          <input
+            type="text"
+            id="product-frontCamera"
+            placeholder="Front Camera"
+            required
+          />
+          <input
+            type="text"
+            id="product-img"
+            placeholder="Image URL"
+            required
+          />
+          <textarea
+            id="product-desc"
+            placeholder="Description"
+            required
+          ></textarea>
+          <input type="text" id="product-type" placeholder="Type" required />
+          <button type="submit" id="addProduct">Save</button>
+        </form>
+      </div>
     </div>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
