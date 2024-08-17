@@ -1,10 +1,25 @@
 
+// Hàm DOM
 function domID(id){
     return document.getElementById(id)
 };
 function getValue(id){
     return domID(id).value
 }
+//Hàm ẩn/ hiện modal
+function buttonModal(...ids){
+    ids.forEach(id =>{
+        if (id) {
+            id.onclick = function(e){
+                e.preventDefault();
+                toggleModal();
+            }
+        } else {
+            console.error(`Element with ID ${id} not found.`);
+        }
+    });
+}
+//class product
 function Product() {
     this.name = getValue('product-name');
     this.price = getValue('product-price');
@@ -15,6 +30,8 @@ function Product() {
     this.desc = getValue('product-desc');
     this.type = getValue('product-type')
 };
+
+//hàm hiển thị dữ liệu ra bảng
 function renderStaff(staffs, objects) {
     objects.innerHTML = '';
     var contents = '';
@@ -39,23 +56,23 @@ function renderStaff(staffs, objects) {
     });
     objects.innerHTML = contents;
 }
-function getService(){
-    return  axios({
+
+//Hàm xử lý trung gian
+function getData(){
+    return axios({
         url: url,
         method: 'GET',
     })
 }
-function buttonModal(...ids){
-    ids.forEach(id =>{
-        if (id) {
-            id.onclick = function(e){
-                e.preventDefault();
-                toggleModal();
-            }
-        } else {
-            console.error(`Element with ID ${id} not found.`);
-        }
-    });
+function getService(method, url, err, product){
+    axios({
+        url: url,
+        method: method,
+        data: product
+    }).then(()=>{
+        fetchProduct()
+    }
+    ).catch(error => console.error(`Error ${err}ing product`, error))
 }
 
 function getMethod(method, button, id){
@@ -65,74 +82,42 @@ function getMethod(method, button, id){
     });
 }
 function fetchProduct(){
-    getService().then(response => {
-       /*  let dataValues = Object.values(response.data);
-        dataValues = dataValues.filter(object => object.id != id);
-        sortList(dataValues)
-        response.data =  */
-        renderStaff(response.data, domID('staffContent'))}).catch('err')
+    getData().then(response => {
+        renderStaff(response.data, domID('staffContent'))}).catch(error => console.error(`Error loading data`, error))
     }
+
+
+//Hàm chức năng
 function addProduct(product){
-    axios({
-        url: url,
-        method: 'POST',
-        data: product,
-    }).then(() => {
-        fetchProduct()}).catch(error => console.error('Error adding product', error));
+    getService('POST', url, 'add', product);
+    toggleModal()
     };
    
 function deleteProduct(id) {
-    axios({
-        url: `${url}/${id}`,
-        method: 'DELETE',
-    }).then(()=> {
-        fetchProduct()
-    }).catch(error => console.error('Error deleting product', error))
+    getService('DELETE', `${url}/${id}`, 'delett')
 };
 
 function updateProduct(product, id){
-    axios({
-        url:  `${url}/${id}`,
-        method: 'PUT',
-        data: product,
-    }).then(()=> {
-        fetchProduct()
-    }).catch(error =>{
-        console.error('Error updating product', error)
-    })
+    getService('PUT',  `${url}/${id}`, 'updatt', product)
 }
-    const productModal = domID('product-modal');
-    const productForm = domID('product-form');
-    const productList = domID('staffContent');
-    const filterNameInput = domID('filter-name');
-    const sortPriceButton = domID('sort-price');
-    const addProductButton = domID('add-product');
-    const addNew = domID('addProduct');
-    const closeModalButton = document.querySelector('.close');
+//Biến toàn cục
+
     var url = "https://66adc881b18f3614e3b5e0b7.mockapi.io/product";
 
     const toggleModal = () => {
-        productModal.style.display = productModal.style.display === 'block' ? 'none' : 'block';
+        domID('product-modal').style.display = domID('product-modal').style.display === 'block' ? 'none' : 'block';
     };
 
-    const clearForm = () => {
-        productForm.reset();
-        isEditing = false;
-        editIndex = null;
-        domID('modal-title').textContent = 'Add Product';
-    };
-
-    
-
+//Xử lý chức năng khi load trang
 document.addEventListener('DOMContentLoaded', () => {
-    buttonModal(addProductButton, closeModalButton)
+    buttonModal(domID('add-product'), document.querySelector('.close'))
     fetchProduct();
     
-    getMethod(addProduct, productForm);
+    getMethod(addProduct, domID('product-form'));
     
-    productList.addEventListener('click', (e) => {
+    domID('staffContent').addEventListener('click', (e) => {
         if (e.target.classList.contains('edit')) {
-            productForm.addEventListener('submit', ()=>{
+            domID('product-form').addEventListener('submit', ()=>{
                 var index = Number(e.target.getAttribute('data-index')),
                 productUpdate = new Product();
                 updateProduct(productUpdate, index)
@@ -146,14 +131,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
 
-    /* filterNameInput.addEventListener('input', (e) => {
+    /* domID('filter-name')).addEventListener('input', (e) => {
         const searchTerm = e.target.value.toLowerCase();
         const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchTerm));
         renderFilteredProducts(filteredProducts);
     });
 
     const renderFilteredProducts = (filteredProducts) => {
-        productList.innerHTML = '';
+        domID('staffContent').innerHTML = '';
         filteredProducts.forEach((product, index) => {
             const row = document.createElement('tr');
             row.innerHTML = `
@@ -170,16 +155,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     <button class="delete" data-index="${index}">Delete</button>
                 </td>
             `;
-            productList.appendChild(row);
+            domID('staffContent').appendChild(row);
         });
     }; */
 
-    sortPriceButton.addEventListener('click', () => {
+    domID('sort-price').addEventListener('click', () => {
         products.sort((a, b) => a.price - b.price);
         renderProducts();
     });
     window.onclick = (event) => {
-        if (event.target == productModal) {
+        if (event.target == domID('product-modal')) {
             toggleModal();
         }
     };
