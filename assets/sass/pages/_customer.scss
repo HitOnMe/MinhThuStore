@@ -1,0 +1,117 @@
+@import '../helpler/variables';
+h1, h2 {
+    text-align: center;
+  }
+  
+  // Container Product & Cart
+  .containerProduct, .containerCart {
+    h1 {
+      padding-top: $padding-top-large;
+    }
+  }
+  
+  // Bộ lọc
+  #filter {
+    margin: 20px;
+  }
+  
+  // Product
+  .product {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    width: $product-width;
+    height: $product-height;
+    text-align: center;
+  
+    img {
+      width: $product-image-width;
+      height: auto;
+      margin: 15px 0;
+    }
+  
+    h3 {
+      font-size: $font-size-medium;
+    }
+  }
+  
+  // Cart
+  #cart div {
+    margin: 10px 0;
+  }
+  
+  // Modal
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: $modal-bg;
+  
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: $modal-content-width;
+    }
+  
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+  
+      &:hover,
+      &:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+  }
+  
+  // Product List
+  #product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  // Button
+  .container .btn-warning {
+    font-size: $font-size-large;
+    border-radius: $border-radius-large;
+  }
+  
+  // Hidden Elements
+  .hidehtml, .hidehtmlcart {
+    display: none;
+  }
+  
+  // Image Size
+  .imgSize {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+  
+    img {
+      width: $product-image-width;
+      height: auto;
+      margin: 15px 0;
+    }
+  }
+  
+  // Button Size
+  .buttonSize p, .nameSize p {
+    font-size: $font-size-small;
+  }
