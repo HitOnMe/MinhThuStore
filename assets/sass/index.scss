@@ -3,13 +3,12 @@
 @import './helpler/_variables.scss';
 @import './helpler/_mixin.scss';
 @import './helpler/function';
-@import './components/_button.scss';
-@import './components/_carousel.scss';
-@import './components/_dropdown.scss';
-@import './components/_footer.scss';
-@import './components/_navigation.scss';
-@import './pages/_mixture.scss';
-@import './pages/_customer.scss';
-@import './pages/_admin.scss';
+@import './layout/layout.scss';
+@import './source.sass/animate.scss';
+@import './source.sass/boostrap.min.scss';
+@import './source.sass/jquery.ui.min.scss';
+@import './source.sass/method.scss';
+@import './source.sass/modal.scss';
+@import './source.sass/style4.scss';
 
 

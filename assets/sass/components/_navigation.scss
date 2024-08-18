@@ -1,7 +1,0 @@
-.carousel-item {
-    @include component($color-carousel, 5px);
-    img {
-        height: 500px;
-        object-fit: cover;
-    }
-}

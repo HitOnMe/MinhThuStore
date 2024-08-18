@@ -1,17 +1,64 @@
-
-.choose__service {
-    background-image: url('../../img/store.png');
-    background-color: $primary-color-special;
-    background-size: 100%;
-    color: $color-header;
-    font-size: $font-size-4;
-    background-repeat: no-repeat;
-    position: absolute;
-    width: 100%;
+body, html {
+    margin: 0;
+    padding: 0;
     height: 100%;
-}
-.nav-container {
+    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
-    gap: 50px;
+    align-items: center;
+    background-image: url('background.jpg'); /* Đường dẫn đến hình nền của bạn */
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    color: white;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+
+.admin {
+    background-color: #007bff;
+}
+
+.user {
+    background-color: #28a745;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.admin:hover {
+    background-color: #0056b3;
+}
+
+.user:hover {
+    background-color: #218838;
 }

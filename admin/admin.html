@@ -3,177 +3,631 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý sản phẩm</title>
+
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-    <title>Product Management</title>
-    <link rel="stylesheet" href="../assets/css/index.css" />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />>
+    <link rel="stylesheet" type="text/css" href="../assets/css/index.css" />
   </head>
+
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <i class="fa-solid fa-mobile-screen-button"></i>
-        <a class="navbar-brand" href="#">Minh Thu Store</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Samsung</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">iPhone</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-            <li class="d-flex justify-content-center align-items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                version="1.1"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                width="20"
-                height="20"
-                x="0"
-                y="0"
-                viewBox="0 0 511.728 511.728"
-                style="enable-background: new 0 0 512 512"
-                xml:space="preserve"
-                class=""
+    <div class="wrapper">
+      <!-- Sidebar Holder -->
+      <nav id="sidebar">
+        <div class="sidebar-header">
+          <h3>Minh Thu Store</h3>
+          <strong>BS</strong>
+        </div>
+
+        <ul class="list-unstyled components">
+          <li class="active">
+            <a href="#homeSubmenu">
+              <i class="fa fa-home"></i>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-briefcase"></i>
+              About
+            </a>
+            <a href="../customer/customer.html">
+              <i class="fa fa-files-o"></i>
+              User Page
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-link"></i>
+              Portfolio
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-paperclip"></i>
+              FAQ
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-paper-plane"></i>
+              Contact
+            </a>
+          </li>
+        </ul>
+
+        <ul class="list-unstyled CTAs">
+          <li>
+            <a
+              href="https://bootstrapious.com/tutorial/files/sidebar.zip"
+              class="download"
+              >Download source</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://bootstrapious.com/p/bootstrap-sidebar"
+              class="article"
+              >Back to article</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Page Content Holder -->
+      <div id="content">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button
+                type="button"
+                id="sidebarCollapse"
+                class="btn btn-info navbar-btn"
               >
-                <g>
-                  <path
-                    d="M147.925 379.116c-22.357-1.142-21.936-32.588-.001-33.68 62.135.216 226.021.058 290.132.103 17.535 0 32.537-11.933 36.481-29.017l36.404-157.641c2.085-9.026-.019-18.368-5.771-25.629s-14.363-11.484-23.626-11.484c-25.791 0-244.716-.991-356.849-1.438L106.92 54.377c-4.267-15.761-18.65-26.768-34.978-26.768H15c-8.284 0-15 6.716-15 15s6.716 15 15 15h56.942a6.246 6.246 0 0 1 6.017 4.592l68.265 253.276c-12.003.436-23.183 5.318-31.661 13.92-8.908 9.04-13.692 21.006-13.471 33.695.442 25.377 21.451 46.023 46.833 46.023h21.872a52.18 52.18 0 0 0-5.076 22.501c0 28.95 23.552 52.502 52.502 52.502s52.502-23.552 52.502-52.502a52.177 52.177 0 0 0-5.077-22.501h94.716a52.185 52.185 0 0 0-5.073 22.493c0 28.95 23.553 52.502 52.502 52.502 28.95 0 52.503-23.553 52.503-52.502a52.174 52.174 0 0 0-5.464-23.285c5.936-1.999 10.216-7.598 10.216-14.207 0-8.284-6.716-15-15-15zm91.799 52.501c0 12.408-10.094 22.502-22.502 22.502s-22.502-10.094-22.502-22.502c0-12.401 10.084-22.491 22.483-22.501h.038c12.399.01 22.483 10.1 22.483 22.501zm167.07 22.494c-12.407 0-22.502-10.095-22.502-22.502 0-12.285 9.898-22.296 22.137-22.493h.731c12.24.197 22.138 10.208 22.138 22.493-.001 12.407-10.096 22.502-22.504 22.502zm74.86-302.233c.089.112.076.165.057.251l-15.339 66.425H414.43l8.845-67.023 58.149.234c.089.002.142.002.23.113zm-154.645 163.66v-66.984h53.202l-8.84 66.984zm-74.382 0-8.912-66.984h53.294v66.984zm-69.053 0h-.047c-3.656-.001-6.877-2.467-7.828-5.98l-16.442-61.004h54.193l8.912 66.984zm56.149-96.983-9.021-67.799 66.306.267v67.532zm87.286 0v-67.411l66.022.266-8.861 67.145zm-126.588-67.922 9.037 67.921h-58.287l-18.38-68.194zm237.635 164.905H401.63l8.84-66.984h48.973l-14.137 61.217a7.406 7.406 0 0 1-7.25 5.767z"
-                    fill="#000000"
-                    opacity="1"
-                    data-original="#000000"
-                    class=""
-                  ></path>
-                </g>
-              </svg>
-            </li>
-          </ul>
+                <i class="glyphicon glyphicon-align-left"></i>
+                <span>Toggle Sidebar</span>
+              </button>
+            </div>
+
+            <div
+              class="collapse navbar-collapse"
+              id="bs-example-navbar-collapse-1"
+            >
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Page</a></li>
+                <li><a href="#">Page</a></li>
+                <li><a href="#">Page</a></li>
+                <li><a href="#">Page</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <div class="container">
+          <div class="card text-center">
+            <!-- Header -->
+            <div class="card-header myCardHeader">
+              <div class="row">
+                <div class="col-md-6">
+                  <h3 class="text-left text-primary font-weight-bold">
+                    Danh sách sản phẩm
+                  </h3>
+                </div>
+                <div class="col-md-6 text-right">
+                  <button
+                    class="btn btn-primary"
+                    id="btnThem"
+                    data-toggle="modal"
+                    data-target="#myModal"
+                  >
+                    Thêm sản phẩm
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Body -->
+            <div class="card-body">
+              <div class="row mb-3">
+                <div class="col">
+                  <div class="input-group">
+                    <!-- HTML phần lọc sản phẩm đã có trong đoạn bạn cung cấp -->
+                    <input
+                      class="form-control"
+                      id="searchName"
+                      placeholder="Tên sản phẩm"
+                    />
+                    <select class="form-select" id="searchType">
+                      <option selected>--Loại sản phẩm--</option>
+                      <option>Iphone</option>
+                      <option>Samsung</option>
+                    </select>
+                    <select class="form-select" id="searchPriceRange">
+                      <option selected>--Giá sản phẩm--</option>
+                      <option>Dưới 1000$</option>
+                      <option>1000$ - 2000$</option>
+                      <option>2000$ - 5000$</option>
+                      <option>5000$ trở lên</option>
+                    </select>
+                    <select
+                      class="form-select"
+                      id="sortPrice"
+                      name="graduate"
+                    >
+                      Sắp xếp theo
+                      <option selected>-- Sắp xếp sản phẩm theo --</option>
+                      <option>Giá trị tăng dần</option>
+                      <option>Giá trị giảm dần</option>
+                    </select>
+                    <span class="input-group-text" id="findProduct"
+                      ><i class="fa fa-search"></i
+                    ></span>
+                  </div>
+                </div>
+              </div>
+              <table class="table table-bordered table-hover myTable">
+                <thead class="text-primary">
+                  <tr>
+                    <th class="nowrap">
+                      <span class="mr-1">ID</span>
+                    </th>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá sản phẩm</th>
+                    <th>Loại màn hình</th>
+                    <th>Camera trước</th>
+                    <th>Camera sau</th>
+                    <th>Ảnh minh họa</th>
+                    <th>Đặc điểm</th>
+                    <th>Loại sản phẩm</th>
+                    <th><em class="fa fa-cog"></em></th>
+                  </tr>
+                </thead>
+                <tbody id="tableDanhSach"></tbody>
+              </table>
+            </div>
+
+            <!-- Footer -->
+            <div class="card-footer myCardFooter">
+              <nav>
+                <ul class="pagination justify-content-end" id="ulPhanTrang">
+                  <li></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
-    </nav>
-    <div class="container">
-      <h1>Product Management</h1>
-
-      <div class="actions">
-        <input type="text" id="filter-name" placeholder="Filter by Name" />
-        <button id="sort-price">Sort by Price</button>
-        <button id="add-product">Add Product</button>
-      </div>
-
-      <table id="product-table">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Screen</th>
-            <th>Back Camera</th>
-            <th>Front Camera</th>
-            <th>Image</th>
-            <th>Description</th>
-            <th>Type</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="staffContent">
-          <!-- Dynamic content will be inserted here -->
-        </tbody>
-      </table>
     </div>
 
-    <!-- Modal for adding/editing product -->
-    <div id="product-modal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2 id="modal-title">Add Product</h2>
-        <form id="product-form">
-          <input type="hidden" id="product-id" />
-          <input
-            type="text"
-            id="product-name"
-            placeholder="Product Name"
-            required
-          />
-          <input
-            type="number"
-            id="product-price"
-            placeholder="Price"
-            required
-          />
-          <input
-            type="text"
-            id="product-screen"
-            placeholder="Screen"
-            required
-          />
-          <input
-            type="text"
-            id="product-backCamera"
-            placeholder="Back Camera"
-            required
-          />
-          <input
-            type="text"
-            id="product-frontCamera"
-            placeholder="Front Camera"
-            required
-          />
-          <input
-            type="text"
-            id="product-img"
-            placeholder="Image URL"
-            required
-          />
-          <textarea
-            id="product-desc"
-            placeholder="Description"
-            required
-          ></textarea>
-          <input type="text" id="product-type" placeholder="Type" required />
-          <button type="submit" id="addProduct">Save</button>
-        </form>
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <header class="head-form mb-0">
+            <h2 id="header-title" class="text-center">Thêm sản phẩm</h2>
+          </header>
+
+          <!-- Modal Header -->
+          <!-- 	<div class="modal-header">
+					<h4 class="modal-title" id="modal-title">Modal Heading</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div> -->
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form role="form">
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-id-card"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    name="tk"
+                    id="id"
+                    class="form-control input-sm"
+                    placeholder="Mã ID sản phẩm"
+                  />
+                </div>
+
+                <span class="sp-thongbao" id="tbId"></span>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-mobile"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="name"
+                    name="name"
+                    id="product-name"
+                    class="form-control input-sm"
+                    placeholder="Tên sản phẩm"
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbProductName"></span>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-donate"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="email"
+                    name="email"
+                    id="product-price"
+                    class="form-control input-sm"
+                    placeholder="Giá sản phẩm"
+                  />
+                </div>
+
+                <span class="sp-thongbao" id="tbProductPrice"></span>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-tv"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="email"
+                    name="email"
+                    id="product-screen"
+                    class="form-control input-sm"
+                    placeholder="Loại màn hình"
+                  />
+                </div>
+
+                <span class="sp-thongbao" id="tbProductScreen"></span>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-envelope"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="email"
+                    name="email"
+                    id="product-frontCamera"
+                    class="form-control input-sm"
+                    placeholder="Màn hình trước"
+                  />
+                </div>
+
+                <span class="sp-thongbao" id="tbProductFrontCamera"></span>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-envelope"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="email"
+                    name="email"
+                    id="product-backCamera"
+                    class="form-control input-sm"
+                    placeholder="Màn hình sau"
+                  />
+                </div>
+
+                <span class="sp-thongbao" id="tbProductBackCamera"></span>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-link"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    name="luongCB"
+                    id="product-img"
+                    class="form-control input-sm"
+                    placeholder="URL hình ảnh"
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbProductImg"></span>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-money" aria-hidden="true"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    name="luongCB"
+                    id="product-desc"
+                    class="form-control input-sm"
+                    placeholder="Mô tả sản phẩm"
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbProductDesc"></span>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa fa-briefcase"></i
+                    ></span>
+                  </div>
+                  <select class="form-control input-sm" id="product-type">
+                    <option selected>--Loại sản phẩm --</option>
+                    <option>Iphone</option>
+                    <option>Samsung</option>
+                  </select>
+                </div>
+
+                <span class="sp-thongbao" id="tbProductType"></span>
+              </div>
+            </form>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer" id="modal-footer">
+            <button id="product-form" type="submit" class="btn btn-success">
+              Thêm sản phẩm
+            </button>
+            <button
+              id="btnDong"
+              type="button"
+              class="btn btn-danger"
+              data-dismiss="modal"
+            >
+              Đóng
+            </button>
+          </div>
+        </div>
       </div>
     </div>
+    <div class="modal fade" id="myModal2">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <!-- 	<div class="modal-header">
+					<h4 class="modal-title" id="modal-title">Modal Heading</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div> -->
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <header><h2>Cập Nhật sản phẩm</h2></header>
+          </div>
+          <table
+            class="table table-bordered table-hover myTable"
+            id="updateTable"
+          >
+            <tbody id="tableList">
+              <div class="modal-body">
+                <form role="form">
+                  <div class="form-group">
+              
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fa fa-mobile"></i
+                        ></span>
+                      </div>
+                      <input
+                        type="name"
+                        name="name"
+                        id="product-name"
+                        class="form-control input-update"
+                        placeholder="Tên sản phẩm"
+                      />
+                    </div>
+                    <span class="sp-content" id="tbTen"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fa fa-donate"></i
+                        ></span>
+                      </div>
+                      <input
+                        type="email"
+                        name="email"
+                        id="product-price"
+                        class="form-control input-update"
+                        placeholder="Giá sản phẩm"
+                      />
+                    </div>
+
+                    <span class="sp-content" id="tbEmail"></span>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fa fa-tv"></i
+                        ></span>
+                      </div>
+                      <input
+                        type="email"
+                        name="email"
+                        id="product-screen"
+                        class="form-control input-update"
+                        placeholder="Loại màn hình"
+                      />
+                    </div>
+
+                    <span class="sp-content" id="tbEmail"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fa fa-envelope"></i
+                        ></span>
+                      </div>
+                      <input
+                        type="email"
+                        name="email"
+                        id="product-frontCamera"
+                        class="form-control input-update"
+                        placeholder="Màn hình trước"
+                      />
+                    </div>
+
+                    <span class="sp-content" id="tbEmail"></span>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fa fa-envelope"></i
+                        ></span>
+                      </div>
+                      <input
+                        type="email"
+                        name="email"
+                        id="product-backCamera"
+                        class="form-control input-update"
+                        placeholder="Màn hình sau"
+                      />
+                    </div>
+
+                    <span class="sp-content" id="tbEmail"></span>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fa fa-link"></i
+                        ></span>
+                      </div>
+                      <input
+                        type="text"
+                        name="luongCB"
+                        id="product-img"
+                        class="form-control input-update"
+                        placeholder="URL hình ảnh"
+                      />
+                    </div>
+                    <span class="sp-content" id="tbLuongCB"></span>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fa fa-money" aria-hidden="true"></i
+                        ></span>
+                      </div>
+                      <input
+                        type="text"
+                        name="luongCB"
+                        id="product-desc"
+                        class="form-control input-update"
+                        placeholder="Mô tả sản phẩm"
+                      />
+                    </div>
+                    <span class="sp-content" id="tbLuongCB"></span>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fa fa-briefcase"></i
+                        ></span>
+                      </div>
+                      <select
+                        class="form-control input-update"
+                        id="product-type"
+                      >
+                        <option selected>--Loại sản phẩm --</option>
+                        <option>Iphone</option>
+                        <option>Samsung</option>
+                        <option>Khác</option>
+                      </select>
+                    </div>
+
+                    <span class="sp-content" id="tbChucVu"></span>
+                  </div>
+                </form>
+              </div>
+            </tbody>
+          </table>
+
+          <!-- Modal footer -->
+          <div class="modal-footer" id="modal-footer">
+            <button id="updateProduct" type="button" class="btn btn-success">
+              Cập nhật
+            </button>
+            <button
+              id="closeBtn"
+              type="button"
+              class="btn btn-danger"
+              data-dismiss="modal"
+            >
+              Đóng
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap -->
+    <script src="../assets/js/jquery.min.js"></script>
     <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
+      type="text/javascript"
+      src="../assets/js/jquery.easing.min.js"
     ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+    <script type="text/javascript" src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+
+    <!-- Date Picker -->
+    <!-- <script src="js/jquery-ui.min.js"></script> -->
+    <!--  <script src="./js/jquery-ui.js"></script>
+    <script src="js/datepicker.js"></script> -->
+    <script src="../assets/js/jquery-ui.min.js"></script>
+    <script src="../assets/js/jquery-ui.js"></script>
+    <script src="../assets/js/datepicker.js"></script>
+    <!-- Wow -->
+    <script src="../assets/js/wow.min.js"></script>
+
+    <!-- <script src="js/modal.js"></script> -->
+    <script>
+      new WOW().init();
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#sidebarCollapse").on("click", function () {
+          $("#sidebar").toggleClass("active");
+        });
+      });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="module" src="../admin/controller/index.js"></script>
+    <!-- <script src="./js/index.js"></script> -->
+    <script src="./controller/method.js"></script>
+
+    <script type="module" src="./controller/index.js"></script>
   </body>
 </html>
