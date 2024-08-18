@@ -144,14 +144,12 @@ function editProduct(id){
         var res = response.data;
         var productEdit = new Product(res.name, res.price, res.screen, res.backCamera, res.frontCamera, res.img, res.desc, res.type);
         Object.keys(productEdit).forEach((key, index) =>{
-           console.log(productEdit)
             document.querySelectorAll('.input-update')[index].value = productEdit[key]
         })
     })
 }
 function updateProduct(product, id){
     getService('PUT',  `${url}/${id}`, 'updatt', product)
-    console.log(`${url}/${id}`);
     $('myModal').modal('hide')
 }
 //Biến toàn cục
